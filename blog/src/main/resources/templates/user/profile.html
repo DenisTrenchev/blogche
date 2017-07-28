@@ -1,0 +1,23 @@
+<main>
+    <div class="container body-container" id="bg">
+        <div class="row">
+            <div id="main" class="col-sm-12">
+                <div id="user_info">
+                    <img id="profile_pic" th:src="${encodeToString} ? 'data:image/jpeg;base64,'+${encodeToString} : '/pics/profile.png'"/>
+                </div>
+                <div style="display: inline-block;">
+                    <h2 id="test">
+                        <span  th:text="${user.fullName}"></span>
+                    </h2>
+                    <h3>
+                        <span class="glyphicon glyphicon-envelope"></span>
+                        <span th:text="${user.email}"></span>
+                    </h3>
+                </div>
+                <div id="profile_content">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
