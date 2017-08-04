@@ -4,6 +4,7 @@ import org.springframework.util.StringUtils;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -17,7 +18,7 @@ public class User {
     private String password;
     private Set<Role> roles;
     private Set<Article> articles;
-    private Set<Comment> comments;
+    private List<Comment> comments;
     private byte[] profilePicture;
 
     public User() {
@@ -34,11 +35,11 @@ public class User {
     }
 
     @OneToMany(mappedBy = "author")
-    public Set<Comment> getComments() {
+    public List<Comment> getComments() {
         return comments;
     }
 
-    public void setComments(Set<Comment> comments) {
+    public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
 

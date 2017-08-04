@@ -1,31 +1,11 @@
 $(document).ready(function(){
-    function postComment(content){
-
-        var requestData = {
-            content: content
-        };
-
-        requestData[_csrf_param_name] = _csrf_token;
-
-        console.log(requestData);
-
-        $.ajax({url: window.location.href+'/postcomment',
-            data: requestData,
-            type: 'POST',
-            dataType: "json",
-            success: function(output) {
-                console.log(output);
-            }
-        });
+    function escapeHtml(str) {
+        var div = document.createElement('div');
+        div.appendChild(document.createTextNode(str));
+        return div.innerHTML;
     }
 
-    $("#submit-comment").click(function(){
-        var content = $("#input-comment").val();
-
-        postComment(content);
-    });
-
-    $("#load-comments").click(function(){
+    function loadComments(){
         var requestData = {};
 
         requestData[_csrf_param_name] = _csrf_token;
@@ -34,8 +14,6 @@ $(document).ready(function(){
             data: requestData,
             type: 'GET',
             success: function(response) {
-                console.log(response);
-
                 $("#comments").html("");
                 $.each(response, function (index) {
                     if(this.posterPicture==""){
@@ -46,18 +24,52 @@ $(document).ready(function(){
 
                     $("#comments").append("<div class=\"comment-box\" id=\"" + this.id + "\">"
                         +profilePicture
-                        +"<a class='commenter-name'>" + this.posterName + "</a>"
-                        +"<p class='commenter-comment' style='margin-left: 40px;'>" + this.content + "</p>"
+                        +"<a class='commenter-name'> " + this.posterName + "</a>"
+                        +"<p class='commenter-comment' style='margin-left: 40px;'>" + escapeHtml(this.content) + "</p>"
                         +"</div>"
                     );
                 });
             },
             error: function () {
-                alert("Please log in");
+                alert("Something went wrong");
             }
         })
+    }
+
+    function postComment(content){
+
+        var requestData = {
+            content: content
+        };
+
+        requestData[_csrf_param_name] = _csrf_token;
+
+        $.ajax({url: window.location.href+'/postcomment',
+            data: requestData,
+            type: 'POST',
+            success: function(response) {
+                $("#input-comment").val("");
+                loadComments();
+            },
+            error: function () {
+                alert("Please log in first");
+            }
+        });
+    }
+
+    loadComments();
+
+    $("#submit-comment").click(function(){
+        var content = $("#input-comment").val();
+        if(content==""){
+            alert("Can't post empty comment");
+        }else {
+            postComment(content);
+        }
     });
 
-
+    $("#load-comments").click(function(){
+        loadComments();
+    });
 
 });

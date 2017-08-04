@@ -40,7 +40,7 @@ public class Comment {
         this.id = id;
     }
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     public String getContent() {
         return content;
     }
