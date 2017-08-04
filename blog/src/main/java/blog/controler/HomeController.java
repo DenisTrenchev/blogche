@@ -46,13 +46,13 @@ public class HomeController {
         return "base-layout";
     }
 
-    @GetMapping("/category/{id}")
-    public String listArticles(Model model, @PathVariable Integer id){
-        if(!this.categoryRepository.exists(id)){
-            return "redirect:/";
-        }
+    @GetMapping("/category/{name}")
+    public String listArticles(Model model, @PathVariable String name){
+//        if(!this.categoryRepository.findByName(name)){
+//            return "redirect:/";
+//        }
 
-        Category category = this.categoryRepository.findOne(id);
+        Category category = this.categoryRepository.findByName(name);
         List<Article> articles = this.articleRepository.findAllByCategoryOrderByIdDesc(category);
 
         List<ArticlesViewModel> articlesViewModels = new ArrayList<>();

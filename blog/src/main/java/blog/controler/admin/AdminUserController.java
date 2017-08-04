@@ -37,7 +37,7 @@ public class AdminUserController {
     @Autowired
     private RoleRepository roleRepository;
 
-    @GetMapping
+    @GetMapping("/")
     public  String listUsers(Model model){
         List<User> users = this.userRepository.findAll();
 
@@ -90,7 +90,7 @@ public class AdminUserController {
         user.setRoles(roles);
         this.userRepository.saveAndFlush(user);
 
-        return "redirect:/admin/users";
+        return "redirect:/admin/users/";
     }
 
     @GetMapping("/delete/{id}")

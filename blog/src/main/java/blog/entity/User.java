@@ -17,6 +17,7 @@ public class User {
     private String password;
     private Set<Role> roles;
     private Set<Article> articles;
+    private Set<Comment> comments;
     private byte[] profilePicture;
 
     public User() {
@@ -31,6 +32,16 @@ public class User {
         this.articles = new HashSet<>();
         this.profilePicture = new byte[0];
     }
+
+    @OneToMany(mappedBy = "author")
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {

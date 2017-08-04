@@ -5,7 +5,7 @@
             <div class="col-md-12" th:each="category : ${categories}">
                 <header>
                     <p>
-                    <a th:href="@{/category/{id}(id=${category.id})}" th:text="${category.name + ' (' + #sets.size(category.articles) + ')'}">
+                    <a th:href="@{/category/{id}(id=${category.name})}" th:text="${category.name + ' (' + #sets.size(category.articles) + ')'}">
                     </a>
                     </p>
                 </header>

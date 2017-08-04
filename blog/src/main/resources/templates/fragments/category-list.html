@@ -1,0 +1,8 @@
+<h4>Categories</h4>
+<div th:each="category : ${categories}">
+    <header>
+        <p>
+            <a th:href="@{/category/{id}(id=${category.name})}" th:text="${category.name + ' (' + #sets.size(category.articles) + ')'}"></a>
+        </p>
+    </header>
+</div>

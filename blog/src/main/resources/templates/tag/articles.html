@@ -1,6 +1,8 @@
 <main>
     <div class="container body-content" id="bg">
-        <h1>Search by Tag - <th:block th:text="${tag.name}"></th:block></h1>
+        <div id="title" class="col-md-12">
+            <h1>Search by Tag - <th:block th:text="${tag.name}"></th:block></h1>
+        </div>
         <div class="row">
             <div class="col-md-10">
                 <th:block th:each="article : ${tag.articles}">
@@ -10,9 +12,11 @@
                                 <h2 th:text="${article.title}"></h2>
                             </header>
 
-                            <p th:text="${article.summary}"></p>
+                            <img id="article-pic" th:if="${article.articlePicture}!=''" th:src="@{'data:image/jpeg;base64,'+${article.articlePicture}}"/>
 
-                            <small class="author" th:text="${article.author.fullName}"></small>
+                            <p class="white-space-pre" th:text="${article.summary}"></p>
+
+                            <a class="author" th:text="${article.authorName}"></a>
 
                             <p>
                                 <a class="btn btn-warning btn-xs" th:each="tag:${article.tags}" th:if="${tag.name}!=''" th:href="@{/tag/{name}(name=${tag.name})}" th:text="${tag.name}"></a>
@@ -30,17 +34,7 @@
                     </div>
                 </th:block>
             </div>
-            <div class="col-md-2 category-box">
-                <h4>Categories</h4>
-                <div th:each="category : ${categories}">
-                    <header>
-                        <p>
-                            <a th:href="@{/category/{id}(id=${category.id})}" th:text="${category.name + ' (' + #sets.size(category.articles) + ')'}">
-                            </a>
-                        </p>
-                    </header>
-                </div>
-            </div>
+            <div th:include="fragments/category-list" class="col-md-2 category-box hidden-sm" ></div>
         </div>
     </div>
 </main>

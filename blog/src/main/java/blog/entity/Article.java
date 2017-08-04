@@ -14,6 +14,17 @@ public class Article {
     private Category category;
     private Set<Tag> tags;
     private byte[] articlePicture;
+    private Set<Comment> comments;
+
+
+    @OneToMany(mappedBy = "article")
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
+    }
 
     public byte[] getArticlePicture() {
         return articlePicture;
@@ -95,6 +106,11 @@ public class Article {
 
     @Transient
     public String getSummary(){
-        return this.getContent().substring(0, this.getContent().length());
+        Integer length = this.getContent().length();
+        if(length < 400) {
+            return this.getContent().substring(0, length);
+        }else{
+            return this.getContent().substring(0, 400)+"...";
+        }
     }
 }

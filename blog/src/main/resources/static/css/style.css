@@ -11,40 +11,54 @@
     background-size: 100% auto;
 }
 
+/*h1{*/
+    /*color: #cc1105;*/
+/*}*/
+
+/*h2{*/
+   /*color: #117743;*/
+/*}*/
+
 #bg{
-    background-color: #586073;
     border-radius: 4px;
     margin-top: 150px;
     margin-bottom: 100px;
-    padding-right: 30px;
+    /*padding-right: 30px;*/
     /*width: 60%;*/
 
 }
 
 article{
-    background-color: #1c1f24;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 15px;
-    padding-top: 15px;
-    border-radius: 4px;
-    margin-bottom: 15px;
-    margin-top: 15px;
-}
+     background-color: rgba(208, 206, 206, 0.86);
+     border: 1px solid #D9BFB7;
+     padding-left: 15px;
+     padding-right: 15px;
+     padding-bottom: 15px;
+     padding-top: 15px;
+     border-radius: 4px;
+     margin-bottom: 15px;
+     margin-top: 15px;
+     color: #000000;
+     font-size: 125%;
+ }
+
 article h2{
     margin-top:2px;
 }
 
-/*#bg1{*/
-    /*background-color: #151515;*/
-    /*border: 1px solid #030303;*/
-    /*border-radius: 4px;*/
-    /*margin-bottom: 100px;*/
-
-/*}*/
+article header h2{
+    margin-bottom: 20px;
+}
 
 #title{
-    text-align: center;
+    background-color: rgba(208, 206, 206, 0.86);
+    border: 1px solid #D9BFB7;
+    border-radius: 4px;
+}
+
+#title h1{
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #footer{
@@ -102,17 +116,18 @@ article h2{
     background-size: 100% auto;
 }
 
-#text-break{
-    word-break: break-all;
-}
+/*#text-break{*/
+    /*word-break: break-all;*/
+/*}*/
 
 .white-space-pre {
     white-space: pre-wrap;
     word-wrap: break-word;
 }
 
-#profile-pic{
+#article-pic{
     width: 100%;
+    margin-bottom: 20px;
 }
 
 #article-content{
@@ -122,14 +137,43 @@ article h2{
 .fa{
     color: #888888;
 }
-
 .category-box{
-    background-color: #1c1f24;
+    background-color: rgba(208, 206, 206, 0.86);
+    border: 1px solid #D9BFB7;
     height: 100%;
     margin-top: 15px;
     margin-bottom: 15px;
     border-radius: 4px;
+    width: 15.4%;
+    color: #789922;
 }
+
+.category-box h4{
+    color: #cc1105;
+}
+
+.navbar{
+    background-color: rgba(88, 75, 97, 0.82);
+    border-color: rgba(88, 75, 97, 0.82);
+}
+
+
+.dropdown-menu{
+    background-color: rgba(88, 75, 97, 0.82);
+    border-color: rgba(88, 75, 97, 0.82);
+}
+
+.comment-box{
+    background-color: rgba(208, 206, 206, 0.86);
+    color: black;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
 /*#user_info{*/
     /*width: 100%;*/
 
