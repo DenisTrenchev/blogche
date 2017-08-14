@@ -66,7 +66,8 @@ public class HomeController {
                     article.getSummary(),
                     article.getAuthor().getFullName(),
                     encoded,
-                    article.getTags()
+                    article.getTags(),
+                    article.getAuthor().getId()
             ));
 
         }
@@ -94,7 +95,8 @@ public class HomeController {
                     article.getSummary(),
                     article.getAuthor().getFullName(),
                     encoded,
-                    article.getTags()
+                    article.getTags(),
+                    article.getAuthor().getId()
             ));
 
         }

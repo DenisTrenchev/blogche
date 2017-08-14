@@ -9,6 +9,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
     User findByEmail(String email);
+    User findById (Integer id);
 
 //    @Cascade(value = CascadeType.ALL)
 //    void deleteBy(Integer id);

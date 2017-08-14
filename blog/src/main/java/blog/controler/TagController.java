@@ -40,7 +40,8 @@ public class TagController {
                     article.getSummary(),
                     article.getAuthor().getFullName(),
                     encoded,
-                    article.getTags()
+                    article.getTags(),
+                    article.getAuthor().getId()
 
             );
             viewModels.add(viewModel);
@@ -56,6 +57,7 @@ public class TagController {
         }
 
         model.addAttribute("categories", categories);
+        model.addAttribute("articles", tagViewModel.getArticles());
         model.addAttribute("tag", tagViewModel);
         model.addAttribute("view", "tag/articles");
 

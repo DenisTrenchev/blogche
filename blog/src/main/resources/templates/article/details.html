@@ -11,7 +11,7 @@
 
                     <p class="white-space-pre" id="text" th:text="${article.content}"> </p>
 
-                    <small class="author" th:text="${article.author.fullName}"></small>
+                    <a class="author" th:text="${article.author.fullName}" th:href="@{/user/} + ${article.author.id} +@{/}"></a>
 
                     <p>
                         <a class="btn btn-warning btn-xs" th:each="tag:${article.tags}" th:if="${tag.name}!=''" th:href="@{/tag/{name}(name=${tag.name})}" th:text="${tag.name}"></a>

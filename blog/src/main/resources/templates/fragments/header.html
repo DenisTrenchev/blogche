@@ -24,6 +24,13 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+
+                    <li sec:authorize="isAuthenticated()">
+                        <a th:href="@{/article/create}">
+                            Feed
+                        </a>
+                    </li>
+
                     <li>
                         <a th:href="@{/categories}">
                             Categories
@@ -37,7 +44,6 @@
                             <li><a th:href="@{/admin/users/}">Users</a></li>
                         </ul>
                     </li>
-
 
                     <li sec:authorize="isAuthenticated()">
                         <a th:href="@{/article/create}">

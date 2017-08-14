@@ -12,14 +12,24 @@ public class ArticlesViewModel {
     private String authorName;
     private String articlePicture;
     private Set<Tag> tags;
+    private Integer authorId;
 
-    public ArticlesViewModel(Integer id, String title, String summary, String authorName, String articlePicture, Set<Tag> tags) {
+    public ArticlesViewModel(Integer id, String title, String summary, String authorName, String articlePicture, Set<Tag> tags, Integer authorId) {
         this.id = id;
         this.title = title;
         this.summary = summary;
         this.authorName = authorName;
         this.articlePicture = articlePicture;
         this.tags = tags;
+        this.authorId = authorId;
+    }
+
+    public Integer getAuthorId() {
+        return authorId;
+    }
+
+    public void setAuthorId(Integer authorId) {
+        this.authorId = authorId;
     }
 
     public Integer getId() {

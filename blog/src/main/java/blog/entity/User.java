@@ -20,6 +20,8 @@ public class User {
     private Set<Article> articles;
     private List<Comment> comments;
     private byte[] profilePicture;
+    private Set<User> followedUsers;
+    private Set<User> followedBy;
 
     public User() {
     }
@@ -32,6 +34,25 @@ public class User {
         this.roles = new HashSet<>();
         this.articles = new HashSet<>();
         this.profilePicture = new byte[0];
+    }
+
+    @ManyToMany(cascade={CascadeType.ALL})
+    @JoinTable(name = "user_follow", joinColumns={@JoinColumn(name="follower_id")}, inverseJoinColumns={@JoinColumn(name="followed_id")})
+    public Set<User> getFollowedUsers() {
+        return followedUsers;
+    }
+
+    public void setFollowedUsers(Set<User> followedUsers) {
+        this.followedUsers = followedUsers;
+    }
+
+    @ManyToMany(mappedBy="followedUsers")
+    public Set<User> getFollowedBy() {
+        return followedBy;
+    }
+
+    public void setFollowedBy(Set<User> followedBy) {
+        this.followedBy = followedBy;
     }
 
     @OneToMany(mappedBy = "author")
